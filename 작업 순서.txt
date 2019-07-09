@@ -1,0 +1,31 @@
+﻿1.폴더 구조를 미리 만들어 놓는다(ex:service, vo, vao, mapper, ...)
+
+2.홈컨트롤러에서 Autowired를 (@Autowired <br />MemberService memberService)
+  이용하여 서비스와 연결을 한다(ex: homecontroller -> memberservice)
+
+3. JSP를 수정또는 생성하고 구조를 알맞게 만들어 놓는다.
+
+4. MemberVO 에서 필요한 멤버 변수들을 만든다.(ex: 멤버변수, get와 set, ToString, ...)
+
+5. jsp로 만든 홈페이지에서 정보를 넣었을때 홈컨트롤에서 정보가 잘 입력이 되었는지 콘솔로 확인한다.
+
+6. 작동이 잘 되었을때 홈컨트롤러에서 Autowired를 이용하여 만든 객체생성 멤버 이름을 정하여준다.
+
+7. 빨간색 밑줄이 뜬 변수이름에 마우스를 두면 create method가 뜬다 그다음 클릭 
+
+8. Interface MemberService에 메소드 생성이 된다. 
+
+9. 미리 만들어둔 MemberServiceImp에 빨간색 밑줄이 뜬다. 똑같이 create method 클릭 
+
+10. MemberServiceImp안에 생성된 메소드에 기능을 구현한다.
+     (메소드를 구현하기전에 MemberServiceImp에 Autowired MemberDAO 를 해준다.)
+
+11. 홈컨트롤러에서 와 똑같이 메소드 안에 빨간색 밑줄이 뜬다. 똑같이 create method 클릭
+
+12. MemberDAO안에 메소드가 생성된다.
+
+13. Mapper를 이용하여 MemberDAO와 연결을 해주고, 쿼리문을 작성하여 DB에 접근한다.
+     (ex: namespace, id 그리고 resultType을 알맞게 써준다.)
+
+
+
