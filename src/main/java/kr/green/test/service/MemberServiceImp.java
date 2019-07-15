@@ -23,4 +23,16 @@ public class MemberServiceImp implements MemberService {
 			return true;		
 		return false;		
 	}
+
+	@Override
+	public MemberVO getLogin(MemberVO mVo) {
+		if(mVo == null)
+			return null;
+		MemberVO gVo = memberDao.getMember(mVo.getId());
+		if(gVo == null)			
+			return null; 
+		if(gVo.getPw().equals(mVo.getPw()))		
+			return gVo;
+		return null;
+	}
 }
