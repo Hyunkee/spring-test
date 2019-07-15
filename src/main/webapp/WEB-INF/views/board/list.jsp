@@ -5,26 +5,28 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<jsp:include page="/WEB-INF/views/common/bootstrap.jsp"></jsp:include>
+<title>게시판 리스트</title>
 </head>
 <body>
-	<table>
-		<tr>
-			<th>번호</th>
-			<th>제목</th>
-			<th>작성자</th>
-			<th>작성일</th>
-			<th>조회수</th>
-		</tr>
-		<c:forEach var="tmp" items="${list}">
-		<tr>
-			<th>${tmp.num }</th>
-			<th><a href="<%=request.getContextPath()%>/board/display?num=${tmp.num}">${tmp.title }</a></th>
-			<th>${tmp.writer }</th>
-			<th>${tmp.registered }</th>
-			<th>${tmp.views }</th>
-		</tr>
-		</c:forEach>
-	</table>
+<jsp:include page="/WEB-INF/views/common/header.jsp"></jsp:include>
+<table>
+	<tr>
+		<th>번호</th>
+		<th>제목</th>
+		<th>작성자</th>
+		<th>작성일</th>
+		<th>조회수</th>
+	</tr>
+	<c:forEach var="tmp" items="${list}">
+	<tr>
+		<th>${tmp.num }</th>
+		<th><a href="<%=request.getContextPath()%>/board/display?num=${tmp.num}">${tmp.title }</a></th>
+		<th>${tmp.writer }</th>
+		<th>${tmp.registered }</th>
+		<th>${tmp.views }</th>
+	</tr>
+	</c:forEach>
+</table>
 </body>
 </html>
