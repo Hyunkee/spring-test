@@ -30,7 +30,7 @@ public class HomeController {
 		//String email = memberDAO.getEmail(id);
 		//System.out.println(email);
 		//model.addAttribute("email",email);
-		return "home";
+		return "login";
 	}
 	@RequestMapping(value = "/login", method = RequestMethod.GET)
 	public String loginGet() {
