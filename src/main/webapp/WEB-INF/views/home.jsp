@@ -6,15 +6,8 @@
 	<title>Home</title>
 </head>
 <body>
-<h1>
-	Hello world!  
-</h1>
-
-<P>  The time on the server is ${serverTime}. </P>
-<form method="get">
-	<input type="text" name="id">
-	<button>전송</button>
+<form method="post">
+	<a href="<%=request.getContextPath()%>/login">로그인하기</a></th>
 </form>
-${email}
 </body>
 </html>
