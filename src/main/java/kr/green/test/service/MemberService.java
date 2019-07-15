@@ -7,6 +7,8 @@ import kr.green.test.vo.MemberVO;
 @Service
 public interface MemberService {
 
-	public boolean getId(MemberVO mVo);	
+	public boolean getId(MemberVO mVo);
+
+	public MemberVO getLogin(MemberVO mVo);	
 
 }
