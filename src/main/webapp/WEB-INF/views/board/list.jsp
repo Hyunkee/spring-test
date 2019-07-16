@@ -10,6 +10,7 @@
 </head>
 <body>
 <jsp:include page="/WEB-INF/views/common/header.jsp"></jsp:include>
+<jsp:include page="/WEB-INF/views/common/navbar.jsp"></jsp:include>
 <table>
 	<tr>
 		<th>번호</th>
