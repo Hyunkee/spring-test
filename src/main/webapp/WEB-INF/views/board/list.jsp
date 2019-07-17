@@ -11,23 +11,26 @@
 <body>
 <jsp:include page="/WEB-INF/views/common/header.jsp"></jsp:include>
 <jsp:include page="/WEB-INF/views/common/navbar.jsp"></jsp:include>
-<table>
-	<tr>
-		<th>번호</th>
-		<th>제목</th>
-		<th>작성자</th>
-		<th>작성일</th>
-		<th>조회수</th>
-	</tr>
-	<c:forEach var="tmp" items="${list}">
-	<tr>
-		<th>${tmp.num }</th>
-		<th><a href="<%=request.getContextPath()%>/board/display?num=${tmp.num}">${tmp.title }</a></th>
-		<th>${tmp.writer }</th>
-		<th>${tmp.registered }</th>
-		<th>${tmp.views }</th>
-	</tr>
-	</c:forEach>
-</table>
+<div class="container">
+	<table class="table">
+		<tr>
+			<th width="10%">번호</th>
+			<th width="50%">제목</th>
+			<th width="10%">작성자</th>
+			<th width="20%">등록일</th>
+			<th width="10%">조회수</th>
+		</tr>
+		<c:forEach var="board" items="${list}">
+		<tr>
+			<th>${board.num}</th>
+			<th><a href="<%=request.getContextPath()%>/board/display?num=${board.num}">${board.title}</a></th>
+			<th>${board.writer}</th>
+			<th>${board.registered}</th>
+			<th>${board.views}</th>
+		</tr>
+		</c:forEach>		
+	</table>
+	<a href="<%=request.getContextPath()%>/board/insert"><button type="button" class="btn btn-outline-primary">등록하기</button></a>
+</div>
 </body>
 </html>

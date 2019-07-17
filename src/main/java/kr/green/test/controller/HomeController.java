@@ -28,7 +28,7 @@ public class HomeController {
 	
 	@RequestMapping(value = "/", method = RequestMethod.GET)
 	public String getHome(Model model, String id) {
-		logger.info("페이지 실행");
+		//logger.info("페이지 실행");
 		
 		//String email = memberDAO.getEmail(id);
 		//System.out.println(email);
@@ -37,7 +37,7 @@ public class HomeController {
 	}
 	@RequestMapping(value = "/", method = RequestMethod.POST)
 	public String postHome(Model model, String id) {
-		logger.info("페이지 실행중");
+		//logger.info("페이지 실행중");
 		
 		//String email = memberDAO.getEmail(id);
 		//System.out.println(email);
@@ -46,13 +46,13 @@ public class HomeController {
 	}
 	@RequestMapping(value = "/login", method = RequestMethod.GET)
 	public String loginGet() {
-		logger.info("로그인페이지 확인");
+		//logger.info("로그인페이지 확인");
 		
 		return "login";		
 	}
 	@RequestMapping(value = "/login", method = RequestMethod.POST)
 	public String loginPost(Model model, MemberVO mVo) {
-		logger.info("로그인페이지 실행");
+		//logger.info("로그인페이지 실행");
 		
 		MemberVO user = memberService.getLogin(mVo);
 		if(user != null) {
@@ -63,13 +63,13 @@ public class HomeController {
 	}
 	@RequestMapping(value = "/nav", method = RequestMethod.GET)
 	public String navGet() {
-		logger.info("nav페이지 확인");
+		//logger.info("nav페이지 확인");
 		
 		return "nav";		
 	}
 	@RequestMapping(value = "/logout", method = RequestMethod.GET)
 	public String logoutGet(HttpServletRequest request) {
-		logger.info("로그아웃 실행");		
+		//logger.info("로그아웃 실행");		
 		HttpSession session = request.getSession();
 		session.removeAttribute("user");
 		return "redirect:/login";	

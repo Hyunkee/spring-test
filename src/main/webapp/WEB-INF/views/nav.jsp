@@ -11,7 +11,6 @@
 <body>
 <jsp:include page="/WEB-INF/views/common/header.jsp"></jsp:include>
 <jsp:include page="/WEB-INF/views/common/navbar.jsp"></jsp:include>
-<a href="<%=request.getContextPath()%>/board/list">게시판</a>
 <div class="container" style="margin-top:30px">
   <div class="row">
     <div class="col-sm-4">

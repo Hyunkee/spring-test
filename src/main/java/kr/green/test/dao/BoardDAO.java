@@ -10,5 +10,11 @@ public interface BoardDAO {
 
 	BoardVO getBoard(Integer num);
 
+	void insertBoard(BoardVO boardVO);
+
+	void deleteBoard(BoardVO boardVO);
+
+	void updateBoard(BoardVO nVo);	
+
 }
 
