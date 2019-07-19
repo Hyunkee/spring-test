@@ -42,7 +42,7 @@ public class HomeController {
 		//String email = memberDAO.getEmail(id);
 		//System.out.println(email);
 		//model.addAttribute("email",email);
-		return "login";
+		return "redirect:/";
 	}
 	@RequestMapping(value = "/login", method = RequestMethod.GET)
 	public String loginGet() {
@@ -57,7 +57,7 @@ public class HomeController {
 		MemberVO user = memberService.getLogin(mVo);
 		if(user != null) {
 			model.addAttribute("user",user);
-			return "redirect:/nav";
+			return "redirect:/";
 		}
 		return "redirect:/login";
 	}
@@ -72,6 +72,6 @@ public class HomeController {
 		//logger.info("로그아웃 실행");		
 		HttpSession session = request.getSession();
 		session.removeAttribute("user");
-		return "redirect:/login";	
+		return "redirect:/";	
 	}
 }
