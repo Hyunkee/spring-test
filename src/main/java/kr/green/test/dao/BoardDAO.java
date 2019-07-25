@@ -1,7 +1,9 @@
 package kr.green.test.dao;
 
 import java.util.ArrayList;
+import java.util.List;
 
+import kr.green.test.pagination.Criteria;
 import kr.green.test.vo.BoardVO;
 
 public interface BoardDAO {
@@ -14,7 +16,14 @@ public interface BoardDAO {
 
 	void deleteBoard(BoardVO boardVO);
 
-	void updateBoard(BoardVO nVo);	
+	void updateBoard(BoardVO nVo);
+
+	int countBoard(Criteria cri);
+
+	List<BoardVO> listPage(Criteria criteria);
+
+	
+	
 
 }
 
