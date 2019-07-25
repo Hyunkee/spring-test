@@ -9,6 +9,18 @@ public interface MemberService {
 
 	public boolean getId(MemberVO mVo);
 
-	public MemberVO getLogin(MemberVO mVo);	
+	public MemberVO getLogin(MemberVO mVo);
+
+	public void memberShip(MemberVO mVo);
+
+	public String getVal(String str);
+
+	public boolean isMember(String id, String email);
+
+	public void sendEmail(String title, String contents, String email);
+
+	public void modify(String id, String newPw);
+
+	public void modify(MemberVO mVo);	
 
 }

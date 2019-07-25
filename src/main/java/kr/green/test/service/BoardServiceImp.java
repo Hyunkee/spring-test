@@ -1,6 +1,7 @@
 package kr.green.test.service;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
 
@@ -8,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import kr.green.test.dao.BoardDAO;
+import kr.green.test.pagination.Criteria;
 import kr.green.test.vo.BoardVO;
 import kr.green.test.vo.MemberVO;
 
@@ -54,5 +56,17 @@ public class BoardServiceImp implements BoardService {
 			return true;
 		}
 		return false;
-	}	
+	}
+
+	@Override
+	public int countBoard(Criteria cri) {		
+		return boardDao.countBoard(cri);
+	}
+
+	@Override
+	public List<BoardVO> listPage(Criteria criteria) {
+		return boardDao.listPage(criteria);
+	}
+
+	
 }
