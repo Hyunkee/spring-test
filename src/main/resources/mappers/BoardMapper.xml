@@ -30,4 +30,32 @@
 			file = #{file}			
   		where num = #{num}
   </update>
+ 	<select id="listPage" resultType="kr.green.test.vo.BoardVO">
+		select * from board
+		where valid = 'I'
+		<if test="type == 1">
+			AND title like concat('%',#{search},'%')
+		</if>
+		<if test="type == 2">
+			AND contents like concat('%',#{search},'%')
+		</if>
+		<if test="type == 3">
+			AND writer like concat('%',#{search},'%')
+		</if>
+		order by num desc
+		limit #{pageStart}, #{perPageNum}
+	</select>
+	<select id="countBoard" resultType="int">
+		select count(num) from board
+		where valid = 'I'
+		<if test="type == 1">
+			AND title like concat('%',#{search},'%')
+		</if>
+		<if test="type == 2">
+			AND contents like concat('%',#{search},'%')
+		</if>
+		<if test="type == 3">
+			AND writer like concat('%',#{search},'%')
+		</if>		
+	</select>
 </mapper>
