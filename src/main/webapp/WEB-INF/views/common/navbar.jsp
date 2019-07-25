@@ -14,7 +14,12 @@
 	      <li class="nav-item">
 	        <a class="nav-link" href="<%=request.getContextPath()%>/login">로그인</a>
 	      </li>
-	     </c:if>
+	    </c:if>
+	    <c:if test="${user eq null}">	   	
+	      <li class="nav-item">
+	        <a class="nav-link" href="<%=request.getContextPath()%>/member">회원가입</a>
+	      </li>
+	    </c:if>
 	   	<c:if test="${user ne null}">	   	
 	      <li class="nav-item">
 	        <a class="nav-link" href="<%=request.getContextPath()%>/logout">로그아웃</a>
@@ -22,7 +27,7 @@
 	     </c:if>
 	     <c:if test="${user ne null}">
 	      <li class="nav-item">
-	        <a class="nav-link" href="#">회원정보 수정</a>
+	        <a class="nav-link" href="<%=request.getContextPath()%>/member/modify"">회원정보 수정</a>
 	      </li>
     	</c:if>
 	    <li class="nav-item">
