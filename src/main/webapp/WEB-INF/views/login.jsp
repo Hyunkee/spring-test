@@ -29,6 +29,8 @@
 
 </head>
 <body>
+<jsp:include page="/WEB-INF/views/common/header.jsp"></jsp:include>
+<jsp:include page="/WEB-INF/views/common/navbar.jsp"></jsp:include>
 	<div class="offset-4 col-4 border border-dark mt-5">
 		<h1 class="text-center">로그인</h1>
 		<form action="" method="post" >
@@ -43,6 +45,7 @@
 			<div class="offset-8 col-3 clearfix p-0">
 				<button class="btn btn-primary float-right" >로그인</button>
 			</div>
+			<a href="<%=request.getContextPath()%>/password/find"><button type="button" class="btn btn-outline-primary">비밀번호 찾기</button></a>			
 		</form>	
 	</div>
 </body>
