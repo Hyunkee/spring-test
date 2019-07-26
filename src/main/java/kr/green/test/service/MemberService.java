@@ -1,5 +1,7 @@
 package kr.green.test.service;
 
+import javax.servlet.http.HttpServletRequest;
+
 import org.springframework.stereotype.Service;
 
 import kr.green.test.vo.MemberVO;
@@ -21,6 +23,10 @@ public interface MemberService {
 
 	public void modify(String id, String newPw);
 
-	public void modify(MemberVO mVo);	
+	public MemberVO modify(MemberVO mVo, String oldPw);
+
+	public boolean updateUserToSession(HttpServletRequest r, MemberVO nUser);
+
+	
 
 }

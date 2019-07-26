@@ -125,15 +125,22 @@ public class HomeController {
 		return "redirect:/";
 	}
 	@RequestMapping(value = "/member/modify", method = RequestMethod.GET)
-	public String memberModifyGet() {
-		logger.info("회원 정보 수정 페이지");		
+	public String memberModifyGet(Model model, HttpServletRequest r) {
+		logger.info("회원 정보 수정 페이지");
+		HttpSession session = r.getSession();		
+		model.addAttribute("t",session);
+		System.out.println(model);
 		return "modify";
 	}
 	@RequestMapping(value = "/member/modify", method = RequestMethod.POST)
-	public String memberModifyPost(MemberVO mVo) {
-		logger.info("회원 정보 수정 완료");
+	public String memberModifyPost(MemberVO mVo, String oldPw, HttpServletRequest r) {
+		logger.info("회원 정보 수정 진행중");
 		//System.out.println(mVo);
-		memberService.modify(mVo);
+		MemberVO nUser = memberService.modify(mVo,oldPw);
+		boolean t = memberService.updateUserToSession(r,nUser);
+		if(t == false) {			
+			return "modify";
+		}		
 		return "redirect:/";
 	}
 }

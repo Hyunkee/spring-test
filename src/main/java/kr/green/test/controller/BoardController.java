@@ -36,8 +36,7 @@ public class BoardController {
 	    //pageMaker의 현재 페이지 정보 설정
 	    pageMaker.setCriteria(cri);
 	    //pageMakek의 총 게시글 수 설정
-	    pageMaker.setTotalCount(totalCount);
-	    System.out.println(cri);
+	    pageMaker.setTotalCount(totalCount);	    
 	    ArrayList<BoardVO> list 
 	        =  (ArrayList<BoardVO>)boardService.listPage(pageMaker.getCriteria());	    
 	    model.addAttribute("list",list);
@@ -47,9 +46,6 @@ public class BoardController {
 	@RequestMapping(value="/board/display",method=RequestMethod.GET)
 	public String boardDisplayGet(Model model, Integer num) {
 		BoardVO board = boardService.getBoard(num);
-		
-		System.out.println(board);
-		
 		model.addAttribute("board", board);
 		return "board/display";
 	}
@@ -86,7 +82,6 @@ public class BoardController {
 	@RequestMapping(value="/board/modify",method=RequestMethod.POST)
 	public String boardModifyPost(BoardVO nVo) {
 		logger.info("modify페이지 등록 ");		
-		System.out.println(nVo);
 		boardService.modifyBoard(nVo);
 		return "redirect:/board/list";
 	}	
