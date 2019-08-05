@@ -27,20 +27,22 @@
 			return false;
 		}					
 		$(document).ready(function(){
-			$('#signup').submit(function(){
-				if(!checkLength('#signup input[name=id]',8,13)){
-					alert('아이디는 8~13자리 입니다.');
-					return false;				
-				}						
-				if(!checkLength('#signup input[name=pw]',8,13)){
-					alert('비밀번호는 8~13자리 입니다.');
+			$('#modify').submit(function(){
+				if(!checkLength('input[name=oldPw]',8,13)){
+					alert('기존 비밀번호를 알맞게 입력하세요.');
 					return false;
 				}
-				if($('#signup input[type=email]').val().length == 0){
+				// (checkLength('input[name=pw]',8,13) : 새비밀번호를 입력했다면 8~13자리이면 회원 정보 수정해야함.
+				// $('input[name=pw]').val().length==0): 새비밀번호를 입력하지 않았다면 회원 정보 수정해야함
+				if(!(checkLength('input[name=pw]',8,13)||$('input[name=pw]').val().length==0)){
+					alert('비밀번호는 8~13자리 입니다. 또는 비밀번호를 수정하지 않으려면 새비밀번호를 입력하지 마세요.');
+					return false;
+				}
+				if($('input[type=email]').val().length == 0){
 					alert('이메일을 입력해주세요.');
 					return false;
 				}
-				if(!checkSame('#signup input[name=pw]','#signup input[name=pw2]')){
+				if(!checkSame('input[name=pw]','input[name=pw2]')){
 					alert('비밀번호와 일치하지 않습니다.');
 					return false;
 				}				
@@ -68,41 +70,41 @@
 	<div>
 		<div class="offset-4 col-4 border border-dark mt-5">
 			<h1 class="text-center">회원 정보 수정</h1>
-			<form method="post" action="">
+			<form method="post" action="" id="modify">
 				<div class="row">
 					<label class="col-4">아이디</label>
 					<input type="text"class="form-control col-7" value="${user.id}" name="id" readonly>					
 				</div>
 				<div class="row">
 					<label class="col-4">기존 비밀번호</label>
-					<input type="password"class="form-control col-7" placeholder="비밀번호" name="oldpw" id="oldpw">
+					<input type="password"class="form-control col-7" placeholder="비밀번호" name="oldPw" id="oldPw">
 				</div>								
 				<div class="row">
 					<label class="col-4">새 비밀번호</label>
-					<input type="password"class="form-control col-7" placeholder="비밀번호" name="pw" id="pw">
+					<input type="password"class="form-control col-7" placeholder="새비밀번호" name="pw" id="pw">
 				</div>
 				<div class="row">
 					<label class="col-4">비밀번호확인</label>
-					<input type="password"class="form-control col-7" placeholder="비밀번호확인" name="pw2">
+					<input type="password"class="form-control col-7" placeholder="새비밀번호확인" name="pw2">
 				</div>
 				<div class="row">
 					<label class="col-4">성별</label>
 					<div class="col-8" >
 						<label class="form-check-label col-5">
-							<input type="radio" class="form-check-input"  name="gender" value="M" checked>남성
+							<input type="radio" class="form-check-input"  name="gender" value="M" <c:if test="${user.gender eq 'M'}">checked</c:if>>남성
 						</label>
 						<label class="form-check-label">
-							<input type="radio" class="form-check-input"  name="gender" value="W">여성
+							<input type="radio" class="form-check-input"  name="gender" value="W" <c:if test="${user.gender eq 'W'}">checked</c:if>>여성
 						</label>						
 					</div>
 				</div>
 				<div class="row">
 					<label class="col-4">이메일</label>
-					<input type="email"class="form-control col-7" placeholder="이메일" name="email">
+					<input type="email"class="form-control col-7" placeholder="이메일" name="email" value="${user.email}">
 				</div>
 				<div class="row">
 					<label class="col-4">이름</label>
-					<input type="text"class="form-control col-7" placeholder="이름" name="name">
+					<input type="text"class="form-control col-7" placeholder="이름" name="name" value="${user.name}">
 				</div>
 				<div class="offset-8 col-3 clearfix p-0">
 					<button class="btn btn-primary float-right" id="modify">회원 정보 수정</button>
